@@ -10,6 +10,7 @@ const App: React.FC = () => {
   const [filteredEntities, setFilteredEntities] = useState<Entity[]>([]);
   const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
   const [baseMap, setBaseMap] = useState<string>('street-map');
+  const [showDensityContour, setShowDensityContour] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState({
@@ -107,6 +108,8 @@ const App: React.FC = () => {
         onFilterChange={handleFilterChange}
         onZoomIn={() => {}} // These will be connected to the map's zoom controls
         onZoomOut={() => {}}
+        showDensityContour={showDensityContour}
+        onDensityContourToggle={() => setShowDensityContour(!showDensityContour)}
       />
       <MapComponent
         entities={filteredEntities}
@@ -114,6 +117,7 @@ const App: React.FC = () => {
         selectedEntity={selectedEntity}
         onEntitySelect={handleEntitySelect}
         baseMap={baseMap}
+        showDensityContour={showDensityContour}
       />
     </div>
   );

@@ -105,6 +105,28 @@ h2 {
   gap: 8px;
 }
 
+.visualization-controls {
+  margin-bottom: 1rem;
+}
+
+.toggle-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.toggle-control input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.toggle-label {
+  font-size: 14px;
+  color: #333;
+}
+
 .zoom-button {
   width: 36px;
   height: 36px;

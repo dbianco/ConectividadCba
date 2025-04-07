@@ -18,6 +18,8 @@ interface InfoPanelProps {
     connectionType: string;
   };
   onFilterChange: (key: string, value: string) => void;
+  showDensityContour: boolean;
+  onDensityContourToggle: () => void;
 }
 
 const InfoPanel: React.FC<InfoPanelProps> = ({
@@ -31,6 +33,8 @@ const InfoPanel: React.FC<InfoPanelProps> = ({
   onZoomOut,
   filters,
   onFilterChange,
+  showDensityContour,
+  onDensityContourToggle,
 }) => {
 
   return (
@@ -116,6 +120,17 @@ const InfoPanel: React.FC<InfoPanelProps> = ({
       </div>
 
       <div className="panel-section">
+        <h2>Visualización</h2>
+        <div className="visualization-controls">
+          <label className="toggle-control">
+            <input
+              type="checkbox"
+              checked={showDensityContour}
+              onChange={onDensityContourToggle}
+            />
+            <span className="toggle-label">Mostrar Densidad</span>
+          </label>
+        </div>
         <h2>Mapa Base</h2>
         <div className="base-map-selector">
           <button
